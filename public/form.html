@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>API</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+    <body>
+        <div>
+            Create a user by filling out the fields below:
+            <hr/>
+            <form action="/api/user/create" method="POST">
+				<table border="0">
+				<tr>
+					<td> First Name </td>
+					<td><input placeholder="First name" name="first_name"/></td>
+				</tr>	
+                <tr>
+					<td> Last Name </td>
+					<td><input placeholder="Second name" name="second_name"/></td>
+				</tr>
+                <tr>
+					<td> Email </td>
+					<td> <input placeholder="Email ID" name="email_id"/></td>
+				</tr>	
+                <tr>
+					<td> User Type </td>
+					<td>	
+						<select placeholder="Type" name="type" size="1">
+							<option value="teacher">teacher</option>
+							<option value="student">student</option>
+						</select>
+					</td>	
+				</tr>				
+                <tr> 
+					<td colspan=2 align="center"><button>Submit</button></td>
+				</tr>
+              </table>				
+            </form>
+        </div>
+    </body>
+</html>

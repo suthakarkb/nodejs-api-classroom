@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-api-class",
+  "version": "1.0.0",
+  "description": "Admin and User functions of classroom",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha"
+  },
+  "author": "Suthakar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "debug": "^4.1.0",
+    "cors": "^2.8.4"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.2",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suthakarkb/nodejs-api-classroom"
+  }
+}
