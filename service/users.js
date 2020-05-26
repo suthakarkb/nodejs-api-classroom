@@ -19,25 +19,22 @@ const config = require("./lib/config");
  *  HTTP/1.1 200 OK
  * [
  *  {
- *    "id": 1,
- *    "first_name": "Tom",
- *    "second_name": "B. Erichsen",
- *    "email_id": "Tom@gmail.com",
- *    "type": "teacher"
+ *    "firstName": "Tom",
+ *    "lastName": "B. Erichsen",
+ *    "email": "Tom@gmail.com",
+ *    "userType": "teacher"
  *  },
  *  {
- *    "id": 2,
- *    "first_name": "Nick",
- *    "second_name": "Cott",
- *    "email_id": "Nick@gmail.com",
- *    "type": "teacher"
+ *    "firstName": "Nick",
+ *    "lastName": "Cott",
+ *    "email": "Nick@gmail.com",
+ *    "userType": "teacher"
  *  },
  *  {
- *    "id": 3,
- *    "first_name": "Patrik",
- *    "second_name": "Luq",
- *    "email_id": "Patrik@gmail.com",
- *    "type": "student"
+ *    "firstName": "Patrik",
+ *    "lastName": "Luq",
+ *    "email": "Patrik@gmail.com",
+ *    "userType": "student"
  *  }
  * ]
  */
@@ -50,7 +47,12 @@ router.get("/", (req, res) => {
         res.status(500).json({success: false,"message": err.sqlMessage})
         return
       }
-      res.status(200).json(rows)
+	  //mapping the result //removed primary key id
+      const user = rows.map((row) => {
+          return {firstName: row.first_name, lastName: row.second_name, email: row.email_id, userType: row.type}
+      })
+      res.status(200).json(user)
+      //res.status(200).json(rows)
     })
   })
   
