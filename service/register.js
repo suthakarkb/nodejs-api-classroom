@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
     message = "Email id of teacher is not valid";
   }
   
-  var values = studentEmails.map((studEmail) => {	  
+  const values = studentEmails.map((studEmail) => {	  
 	  if (!validator.validateEmail(studEmail)) {
 		validInput = false;
 		message = "One of the sudent's Email id is not valid";
@@ -86,7 +86,7 @@ router.post('/', (req, res) => {
     //return an error if a student is not there in the system
     //assign all the students to the given teacher if all the students are present
     const studentTeacherInsertString = "INSERT INTO register (teacher_email, student_email, valid) VALUES ?"
-    var values = studentEmails.map((studentEmail) => {
+    const values = studentEmails.map((studentEmail) => {
       return [teacherEmail, studentEmail, 1]
     })
     connection.query(studentTeacherInsertString, [values], (errStudentTeacherInsert, resultsStudentTeacherInsert, fieldsStudentTeacherInsert) => {

@@ -64,5 +64,3 @@ Unit test cases have been written using moacha framework with supertest and shou
 To run the unit test cases
 * Start the node.js app using "npm start".
 * Then run test command "npm run test".
-
-"# nodejs-api-classroom" 

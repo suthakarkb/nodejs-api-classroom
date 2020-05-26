@@ -75,7 +75,7 @@ router.post('/', (req, res) => {
   //return an error the teacher is not there in the system
   const queryString = "SELECT * FROM users where email_id=" + mysql.escape(teacherEmail) + " limit 1";
   const connection = config.getConnection();
-  var query = connection.query(queryString, (err, rows) => {
+  const query = connection.query(queryString, (err, rows) => {
     if (err) {
         console.log("Failed to query for users: " + err)
         console.error(err);
@@ -97,7 +97,7 @@ router.post('/', (req, res) => {
         console.log("Students in notification :: " + studentEmails)
 
       const studentQueryString ="select a.student_email from register a where a.student_email in (?) and a.valid=? UNION select student_email from register where teacher_email=? and valid=?";
-      var studentQuery = connection.query(studentQueryString, [studentEmails, 1, teacherEmail, 1], (errStudent, rowsStudent) => {
+      const studentQuery = connection.query(studentQueryString, [studentEmails, 1, teacherEmail, 1], (errStudent, rowsStudent) => {
         if (errStudent) {
           console.log("Failed to query for users: " + errStudent)
           res.status(500).json({success: false,"message": "Some Internal Error Occured"})
